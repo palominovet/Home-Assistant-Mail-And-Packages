@@ -201,6 +201,32 @@ SENSOR_DATA = {
     "capost_delivering": {},
     "capost_packages": {},
     "capost_tracking": {},
+    # AliExpress
+    "alie_delivered": {
+        "email": ["transaction@notice.aliexpress.com"],
+        "subject": [
+            "delivery update",
+            "out for delivery",
+            "at delivery center",
+        ],
+    },
+    "alie_delivering": {},
+    "alie_packages": {},
+    "alie_tracking": {},
+
+    # Temu
+    "temu_delivered": {
+        "email": ["orders@order.temu.com"],
+        "subject": [
+            "out-for-delivery notification",
+            "scheduled to be delivered tomorrow",
+            "expected delivery date notification",
+        ],
+    },
+    "temu_delivering": {},
+    "temu_packages": {},
+    "temu_tracking": {},
+    
     # DHL
     "dhl_delivered": {
         "email": [
@@ -501,6 +527,44 @@ SENSOR_TYPES: Final[dict[str, SensorEntityDescription]] = {
         icon="mdi:package-variant-closed",
         key="capost_packages",
     ),
+    # AliExpress
+    "alie_delivered": SensorEntityDescription(
+        name="Mail AliExpress Delivered",
+        native_unit_of_measurement="package(s)",
+        icon="mdi:package-variant-closed",
+        key="alie_delivered",
+    ),
+    "alie_delivering": SensorEntityDescription(
+        name="Mail AliExpress Delivering",
+        native_unit_of_measurement="package(s)",
+        icon="mdi:truck-delivery",
+        key="alie_delivering",
+    ),
+    "alie_packages": SensorEntityDescription(
+        name="Mail AliExpress Packages",
+        native_unit_of_measurement="package(s)",
+        icon="mdi:package-variant-closed",
+        key="alie_packages",
+    ),
+    # Temu
+    "temu_delivered": SensorEntityDescription(
+        name="Mail Temu Delivered",
+        native_unit_of_measurement="package(s)",
+        icon="mdi:package-variant-closed",
+        key="temu_delivered",
+    ),
+    "temu_delivering": SensorEntityDescription(
+        name="Mail Temu Delivering",
+        native_unit_of_measurement="package(s)",
+        icon="mdi:truck-delivery",
+        key="temu_delivering",
+    ),
+    "temu_packages": SensorEntityDescription(
+        name="Mail Temu Packages",
+        native_unit_of_measurement="package(s)",
+        icon="mdi:package-variant-closed",
+        key="temu_packages",
+    ),
     # DHL
     "dhl_delivered": SensorEntityDescription(
         name="Mail DHL Delivered",
@@ -710,4 +774,6 @@ SHIPPERS = [
     "inpost_pl",
     "dpd_com_pl",
     "gls",
+    "alie",
+    "temu",
 ]
